@@ -26,15 +26,6 @@ public class DeleteOldFiles {
         System.out.println(space / (1024 * 1024) + " Mb");
     }
 
-
-    public void deleteOldFiles() {
-        for (String folder : folders) {
-            deleteFiles(new File(folder));
-        }
-        System.out.println("Deleted " + count + " files");
-        System.out.println(space / (1024 * 1024) + " Mb");
-    }
-
     private static void deleteFiles(File file) {
         if (file.isDirectory()) {
             if (file.listFiles() == null) {
