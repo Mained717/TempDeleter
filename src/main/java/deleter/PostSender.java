@@ -21,7 +21,7 @@ import java.io.UnsupportedEncodingException;
 public class PostSender {
 
     public void sendPost(FileDeleterStatistic newReport) {
-        String postUrl = "http://192.168.61.165:4567/send-temp-deleter-report";
+        String postUrl = "http://localhost:4567/send-temp-deleter-report";
 
         Gson gson = new Gson();
         HttpClient httpClient = HttpClientBuilder.create().build();
