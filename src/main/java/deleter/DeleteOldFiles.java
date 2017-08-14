@@ -1,6 +1,8 @@
 package deleter;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,9 +17,24 @@ public class DeleteOldFiles {
     static long space = 0;
 
     static {
-        folders.add("C:\\Automation\\Screenshot");
-        folders.add("C:\\Automation\\Tmp");
-        folders.add("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\Temp");
+        if (System.getProperty("os.name").contains("Windows")) {
+            folders.add("C:\\Automation\\Screenshot");
+            folders.add("C:\\Automation\\Tmp");
+            folders.add("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\Temp");
+        } else {
+            folders.add("/home/test/Automation/Screenshot/");
+            folders.add("/home/test/Automation//Tmp/");
+//            folders.add("/tmp/"); - I think this folder will clean automatically by OS
+        }
+    }
+
+    public static String getPcName() {
+        try {
+            return InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+            return "ERROR_Reading_PC_Name";
+        }
     }
 
     public static void main(String[] args) {
@@ -29,6 +46,7 @@ public class DeleteOldFiles {
 
         FileDeleterStatistic newReport = new FileDeleterStatistic();
         newReport.setDate(dateFormat.format(new Date()));
+        newReport.setPcName(getPcName());
         newReport.setFileCounter(count + ".");
         newReport.setFreeSpace(space / (1024 * 1024) + " Mb");
 
