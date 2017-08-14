@@ -29,6 +29,9 @@ public class PostSender {
         StringEntity postingString = null;
         try {
             postingString = new StringEntity(gson.toJson(newReport));
+            System.out.println("*****************");
+            System.out.println(gson.toJson(newReport));
+            System.out.println("*****************");
         } catch (UnsupportedEncodingException e) {
             System.out.println("Can't parse to json((\n\n" + e.getMessage());
         }
