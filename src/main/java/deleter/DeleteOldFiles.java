@@ -69,7 +69,7 @@ public class DeleteOldFiles {
             }
         } else {
             long lastModified = currentTime - file.lastModified();
-            if (lastModified > 1000 * 60 * 60 * 24) {
+            if (lastModified > 1000 * 60 * 60 * 24 * 4) {
                 long fileSize = file.length();
                 boolean isDeleted = file.delete();
                 System.out.println(file.getAbsoluteFile() + " - " + (isDeleted ? "deleted" : "not deleted"));
