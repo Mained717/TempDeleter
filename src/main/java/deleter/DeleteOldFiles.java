@@ -17,7 +17,7 @@ public class DeleteOldFiles {
     static long space = 0;
 
     static {
-        if (getPcName().contains("selenium-au")) {
+        if (getPcName().contains("selenium-au") || System.getProperty("os.name").contains("Windows")) {
             folders.add("C:\\Automation\\Screenshot");
             folders.add("C:\\Automation\\Tmp");
             folders.add("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\Temp");
