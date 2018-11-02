@@ -17,14 +17,13 @@ public class DeleteOldFiles {
     static long space = 0;
 
     static {
-        if (System.getProperty("os.name").contains("Windows")) {
+        if (getPcName().contains("selenium-au")) {
             folders.add("C:\\Automation\\Screenshot");
             folders.add("C:\\Automation\\Tmp");
             folders.add("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\Temp");
         } else {
             folders.add("/home/test/Automation/Screenshot/");
             folders.add("/home/test/Automation//Tmp/");
-//            folders.add("/tmp/"); - I think this folder will clean automatically by OS
         }
     }
 
