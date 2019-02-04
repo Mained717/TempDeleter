@@ -1,11 +1,10 @@
 package deleter;
 
-import lombok.Data;
 
 /**
  * Created by Sergiy.K on 11-Jul-17.
  */
-@Data
+
 public class FileDeleterStatistic {
     private String date;
     private String pcName;

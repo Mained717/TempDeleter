@@ -24,6 +24,8 @@ public class DeleteOldFiles {
         } else {
             folders.add("/home/test/Automation/Screenshot/");
             folders.add("/home/test/Automation//Tmp/");
+            folders.add("/tmp");
+            folders.add("/var/tmp");
         }
     }
 
